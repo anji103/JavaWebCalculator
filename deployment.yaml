@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webcalc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webcalc
+  template:
+    metadata:
+      labels:
+        app: webcalc
+    spec:
+      containers:
+      - name: webcalc
+        image: yourdockerhub/myimg:v1  # <-- Replace with your pushed image
+        ports:
+        - containerPort: 8080
